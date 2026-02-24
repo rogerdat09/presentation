@@ -1,48 +1,139 @@
 body {
-    font-family: Arial, sans-serif;
-    background: #f4f4f4;
-    text-align: center;
-    padding: 50px;
+    margin: 0;
+    font-family: 'Poppins', sans-serif;
+    background: linear-gradient(135deg, #ff4e8d, #8e44ad, #3498db);
+    background-size: 300% 300%;
+    animation: gradientMove 8s ease infinite;
 }
 
-.container {
+@keyframes gradientMove {
+    0% {background-position: 0% 50%;}
+    50% {background-position: 100% 50%;}
+    100% {background-position: 0% 50%;}
+}
+
+/* CENTER WRAPPER */
+.page-wrapper,
+.result-wrapper {
+    min-height: 100vh;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+}
+
+/* MAIN TITLE */
+.main-title {
+    text-align: center;
+    background: rgba(0,0,0,0.4);
+    color: white;
+    padding: 15px 30px;
+    border-radius: 15px;
+    margin-bottom: 30px;
+    font-size: 36px;
+    font-weight: bold;
+    backdrop-filter: blur(10px);
+}
+
+/* FORM CARD */
+.card {
     background: white;
-    padding: 30px;
-    display: inline-block;
-    border-radius: 10px;
-    box-shadow: 0 0 15px rgba(0,0,0,0.2);
+    padding: 40px;
+    border-radius: 20px;
     width: 400px;
+    text-align: center;
+    box-shadow: 0 20px 40px rgba(0,0,0,0.25);
 }
 
 input, select {
-    padding: 10px;
-    width: 90%;
-    margin-top: 5px;
+    width: 100%;
+    padding: 12px;
+    margin: 10px 0 20px 0;
+    border-radius: 10px;
+    border: 1px solid #ddd;
+    font-size: 15px;
 }
 
-input[type="submit"] {
-    background: #3498db;
-    color: white;
+button {
+    width: 100%;
+    padding: 14px;
     border: none;
+    border-radius: 12px;
+    background: linear-gradient(45deg, #ff4e8d, #ff9a9e);
+    color: white;
+    font-size: 16px;
     cursor: pointer;
+    transition: 0.3s;
 }
 
-input[type="submit"]:hover {
-    background: #2980b9;
+button:hover {
+    transform: scale(1.05);
+}
+
+/* RESULT CARD (SIDE BY SIDE LAYOUT) */
+.result-card {
+    background: white;
+    padding: 40px;
+    border-radius: 25px;
+    width: 900px;
+    display: flex;
+    gap: 40px;
+    align-items: center;
+    box-shadow: 0 20px 40px rgba(0,0,0,0.3);
+}
+
+/* IMAGE SIDE */
+.result-image {
+    flex: 1;
+    text-align: center;
+}
+
+.celebrity-img {
+    width: 350px;
+    height: 350px;
+    object-fit: cover;
+    border-radius: 20px;
+    box-shadow: 0 15px 30px rgba(0,0,0,0.3);
+}
+
+/* INFO SIDE */
+.result-info {
+    flex: 1;
+}
+
+.result-info h2 {
+    font-size: 30px;
+    margin-bottom: 15px;
+}
+
+.description {
+    font-size: 18px;
+    margin-bottom: 20px;
+}
+
+.compatibility {
+    font-size: 22px;
+    font-weight: bold;
+    color: #ff4e8d;
+    margin-bottom: 20px;
+}
+
+.details {
+    font-size: 15px;
+    margin-bottom: 25px;
 }
 
 .btn {
     display: inline-block;
-    padding: 10px 20px;
-    margin-top: 20px;
-    background: #2ecc71;
+    padding: 12px 25px;
+    border-radius: 12px;
+    background: #3498db;
     color: white;
     text-decoration: none;
-    border-radius: 5px;
+    transition: 0.3s;
 }
 
-.celebrity-img {
-    width: 200px;
-    margin: 20px 0;
-    border-radius: 10px;
+.btn:hover {
+    background: #2980b9;
+    transform: scale(1.05);
 }

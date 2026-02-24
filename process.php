@@ -2,12 +2,9 @@
 $traitInput = strtolower($_POST['trait']);
 $gender = $_POST['gender'];
 
-/* Convert input into array (allows multiple traits like funny, smart) */
 $userTraits = array_map('trim', explode(",", $traitInput));
 
-/* =========================
-   MALE CELEBRITIES (5)
-   ========================= */
+
 $males = [
 
     "Benhard Awanon" => [
@@ -42,9 +39,7 @@ $males = [
 ];
 
 
-/* =========================
-   FEMALE CELEBRITIES (5)
-   ========================= */
+
 $females = [
 
     "Jupiter Dionaldo" => [
@@ -79,9 +74,7 @@ $females = [
 ];
 
 
-/* =========================
-   SELECT OPPOSITE GENDER
-   ========================= */
+
 if ($gender == "male") {
     $targetGroup = $females;
 } else {
@@ -89,9 +82,7 @@ if ($gender == "male") {
 }
 
 
-/* =========================
-   MATCHING SYSTEM
-   ========================= */
+
 $bestMatch = null;
 $highestScore = 0;
 
@@ -112,7 +103,6 @@ foreach ($targetGroup as $name => $info) {
     }
 }
 
-/* If no keyword matched, pick random */
 if ($bestMatch == null) {
     $bestMatch = array_rand($targetGroup);
 }
@@ -120,7 +110,6 @@ if ($bestMatch == null) {
 $description = $targetGroup[$bestMatch]['description'];
 $image = $targetGroup[$bestMatch]['image'];
 
-/* Compatibility Percentage */
 $compatibility = rand(75, 100);
 ?>
 
@@ -132,21 +121,37 @@ $compatibility = rand(75, 100);
 </head>
 <body>
 
-<div class="container">
-    <h1>Your Ideal Match Is:</h1>
+<div class="result-wrapper">
 
-    <h2><?php echo $bestMatch; ?></h2>
+    <h1 class="main-title">Your Ideal Match</h1>
 
-    <img src="<?php echo $image; ?>" class="celebrity-img">
+    <div class="result-card">
 
-    <p><?php echo $description; ?></p>
+        <!-- LEFT SIDE IMAGE -->
+        <div class="result-image">
+            <img src="<?php echo $image; ?>" class="celebrity-img">
+        </div>
 
-    <h3>Compatibility: <?php echo $compatibility; ?>%</h3>
+        <!-- RIGHT SIDE CONTENT -->
+        <div class="result-info">
+            <h2><?php echo $bestMatch; ?></h2>
 
-    <p><strong>Traits You Like:</strong> <?php echo htmlspecialchars($traitInput); ?></p>
-    <p><strong>Your Gender:</strong> <?php echo ucfirst($gender); ?></p>
+            <p class="description"><?php echo $description; ?></p>
 
-    <a href="index.php" class="btn">Try Again</a>
+            <div class="compatibility">
+                Compatibility: <?php echo $compatibility; ?>%
+            </div>
+
+            <p class="details">
+                <strong>Traits You Like:</strong> <?php echo htmlspecialchars($traitInput); ?><br>
+                <strong>Your Gender:</strong> <?php echo ucfirst($gender); ?>
+            </p>
+
+            <a href="index.php" class="btn">Try Again 🔁</a>
+        </div>
+
+    </div>
+
 </div>
 
 </body>

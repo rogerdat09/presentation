@@ -6,23 +6,27 @@
 </head>
 <body>
 
-<div class="container">
-    <h1>Celebrity Match Generator</h1>
+<div class="page-wrapper">
 
-    <form action="process.php" method="POST">
-        
-        <label>Enter the traits or personality you like:</label><br>
-        <input type="text" name="trait" placeholder="e.g. funny, romantic, athletic" required><br><br>
+    <div class="card">
+        <h1 class="main-title">Celebrity Match Generator</h1>
 
-        <label>Select your Gender:</label><br>
-        <select name="gender" required>
-            <option value="">-- Select Gender --</option>
-            <option value="male">Male</option>
-            <option value="female">Female</option>
-        </select><br><br>
+        <form action="process.php" method="POST">
+            
+            <label>What traits or personality do you like?</label>
+            <input type="text" name="trait" placeholder="funny, romantic, athletic..." required>
 
-        <input type="submit" value="Find My Ideal Match">
-    </form>
+            <label>Select your Gender</label>
+            <select name="gender" required>
+                <option value="">-- Choose --</option>
+                <option value="male">Male</option>
+                <option value="female">Female</option>
+            </select>
+
+            <button type="submit">Find My Ideal Match 💘</button>
+        </form>
+    </div>
+
 </div>
 
 </body>
