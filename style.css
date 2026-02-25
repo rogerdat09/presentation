@@ -3,7 +3,7 @@ body {
     font-family: 'Poppins', sans-serif;
     background: linear-gradient(135deg, #ff4e8d, #8e44ad, #3498db);
     background-size: 300% 300%;
-    animation: gradientMove 8s ease infinite;
+    animation: gradientMove 10s ease infinite;
 }
 
 @keyframes gradientMove {
@@ -70,7 +70,7 @@ button:hover {
     transform: scale(1.05);
 }
 
-/* RESULT CARD (SIDE BY SIDE LAYOUT) */
+/* RESULT CARD */
 .result-card {
     background: white;
     padding: 40px;
@@ -82,7 +82,7 @@ button:hover {
     box-shadow: 0 20px 40px rgba(0,0,0,0.3);
 }
 
-/* IMAGE SIDE */
+/* IMAGE SIDE - unchanged layout */
 .result-image {
     flex: 1;
     text-align: center;
@@ -90,13 +90,14 @@ button:hover {
 
 .celebrity-img {
     width: 350px;
-    height: 350px;
-    object-fit: cover;
+    height: auto;
+    max-height: 450px;
+    object-fit: contain;
     border-radius: 20px;
     box-shadow: 0 15px 30px rgba(0,0,0,0.3);
 }
 
-/* INFO SIDE */
+/* INFO SIDE - texts improved */
 .result-info {
     flex: 1;
 }
@@ -104,11 +105,13 @@ button:hover {
 .result-info h2 {
     font-size: 30px;
     margin-bottom: 15px;
+    color: #8e44ad;
 }
 
 .description {
     font-size: 18px;
     margin-bottom: 20px;
+    line-height: 1.5;
 }
 
 .compatibility {
@@ -118,22 +121,61 @@ button:hover {
     margin-bottom: 20px;
 }
 
+/* TRAITS TAGS */
+.traits {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 10px;
+    margin-bottom: 20px;
+}
+
+.traits span {
+    background: #ff9a9e;
+    color: white;
+    padding: 6px 12px;
+    border-radius: 20px;
+    font-size: 14px;
+}
+
+/* DETAILS BOX */
 .details {
-    font-size: 15px;
+    font-size: 16px;
+    background: #f4f4f4;
+    padding: 15px;
+    border-radius: 15px;
+    line-height: 1.5;
     margin-bottom: 25px;
 }
 
+/* TRY AGAIN BUTTON */
 .btn {
     display: inline-block;
-    padding: 12px 25px;
+    padding: 12px 30px;
     border-radius: 12px;
     background: #3498db;
     color: white;
     text-decoration: none;
+    font-weight: 600;
     transition: 0.3s;
 }
 
 .btn:hover {
     background: #2980b9;
     transform: scale(1.05);
+}
+
+/* RESPONSIVE */
+@media (max-width: 950px) {
+    .result-card {
+        flex-direction: column;
+        align-items: center;
+    }
+
+    .result-info {
+        text-align: center;
+    }
+
+    .traits {
+        justify-content: center;
+    }
 }

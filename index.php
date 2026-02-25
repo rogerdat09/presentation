@@ -11,10 +11,23 @@
     <div class="card">
         <h1 class="main-title">Celebrity Match Generator</h1>
 
+        <?php if (isset($_GET['error'])): ?>
+            <p style="color:red; font-weight:bold;">
+                <?php echo htmlspecialchars($_GET['error']); ?>
+            </p>
+        <?php endif; ?>
+
         <form action="process.php" method="POST">
             
             <label>What traits or personality do you like?</label>
-            <input type="text" name="trait" placeholder="funny, romantic, athletic..." required>
+            <input 
+                type="text" 
+                name="trait" 
+                placeholder="funny, romantic, athletic..."
+                pattern="[A-Za-z\s,-]+"
+                title="Only letters, spaces, comma, and dash are allowed"
+                required
+            >
 
             <label>Select your Gender</label>
             <select name="gender" required>
